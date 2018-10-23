@@ -5,19 +5,17 @@
 #include <ctype.h>
 #include <stdio.h>
 
-float octalToDecimal(char[] cadenaOctal){
-
-	cantidadDeNumeros = largoDeCadena(cadenaOctal);
-	int numeroOctal = atof(cadenaOctal);
-	float numero = 0;
-
-  //Seria 156)8 = 1 * 8^2 + 5 * 8^1 + 6 * 8^0 = 110)10
-	
-	for(int i = cantidadDeNumeros - 1; i >= 0; i--){
-
-	}
-
-	return numero;
+float OctalToDecimal(char cadenaOctal[]){
+	int cantidadDeNumeros = largoDeCadena(cadenaOctal);
+	int arrayNumerosOctal [cantidadDeNumeros];
+	int numeroEnBase10 = 0;
+    
+	for(int indice = 0; indice < cantidadDeNumeros; indice++){arrayNumerosOctal[indice] = cadenaOctal[indice] - '0' ;}
+    
+    	for(int i = cantidadDeNumeros - 1, j = 0; i >= 0; i--,j++){
+        	numeroEnBase10 += arrayNumerosOctal[j] * potencia(8,i);
+    	}
+	return numeroEnBase10;
 }
 
 float hexaToDecimal(numeroHexa){
@@ -25,15 +23,24 @@ float hexaToDecimal(numeroHexa){
 	return numero;
 }
 
-int largoDeCadena(cadena){
- return (sizeof(cadena) - 1)
+int largoDeCadena(char cadena []){
+    int contador;
+    for(contador = 0;cadena[contador] != '\0';contador++);
+    return contador;
 }
 
-float pow(float numero,float potencia){
-	for(int i = 1; i < potencia; i++){
-		numero = numero * numero;
+int potencia(int base,int exponente){
+
+    if(exponente == 0){
+        return 1;
+    }
+    else{
+        int numero = base;
+        for(int i = 1; i < exponente; i++){
+            numero *= base;
+        }
+        return numero;
 	}
-    return numero;
 }
 
 %}
