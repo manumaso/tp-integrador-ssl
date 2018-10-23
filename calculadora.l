@@ -43,6 +43,8 @@ int potencia(int base,int exponente){
 	}
 }
 
+//NOTA: LOS PRINTF TIENEN QUE IR EN %f SINO DAN ERROR, CHEQUEAR BIEN C/TIPO
+
 %}
 %%
 0[0-7]* {yyval.real = octalToDecimal(yytext); return NUM;}
