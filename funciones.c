@@ -17,13 +17,16 @@ float convertir_octal_decimal(char cadenaOctal[]){
 	return numeroEnBase10;
 }
 
-float convertir_hexa_decimal(char hex[]){
-		
+float convertir_hexa_decimal(char cadenaHexaCompleta[]){
+    //Elimina el 0x
+    char cadenaHexa [(largoDeCadena(cadenaHexaCompleta) - 2)];
+    for (int i = 0; i < largoDeCadena(cadenaHexaCompleta); i++){cadenaHexa[i] = cadenaHexaCompleta[i+2];}
+
     int dec=0, longitud, i=0;
-    longitud = largoDeCadena(hex);
+    longitud = largoDeCadena(cadenaHexa);
 
     while (i < longitud) {
-        switch (hex[i]){
+        switch (cadenaHexa[i]){
             case '0': dec = dec + potencia(16,longitud-i-1)* 0;break;
             case '1': dec = dec + potencia(16,longitud-i-1)* 1;break;
             case '2': dec = dec + potencia(16,longitud-i-1)* 2;break;
