@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include <stdio.h>
 
 float convertir_octal_decimal(char cadenaOctal[]){
@@ -47,7 +46,7 @@ float convertir_hexa_decimal(char cadenaHexaCompleta[]){
             i++;
     }
 
-		return (float) dec;
+    return (float) dec;
 }
 
 int largoDeCadena(char cadena []){
