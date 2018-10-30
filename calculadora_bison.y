@@ -43,7 +43,7 @@ exp:    NUM               { $$ = $1             }
 yyerror (s)  /* Llamada por yyparse ante un error */
      char *s;
 {
-  printf ("%s\n", s);
+  printf ("expresion invalida %s\n", s);
 }
 
 main ()

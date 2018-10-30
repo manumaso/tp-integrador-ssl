@@ -21,4 +21,5 @@
 "("     {return '(';}
 ")"     {return ')';}
 "\n"    {return '\n';}
+.       {yyerror ("");} 
 %%
