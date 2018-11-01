@@ -1,5 +1,3 @@
-/* Calculadora de notación infija (usual) */
-
 %{
 #include <math.h>
 #include <stdio.h>
@@ -20,9 +18,9 @@
 %nonassoc '^'
 
 
-%% /* A continuación las reglas gramaticales y las acciones */
+%% /* A continuaciï¿½n las reglas gramaticales y las acciones */
 
-input:    /* vacío */
+input:    /* vacï¿½o */
         | input line
 ;
 
@@ -30,11 +28,11 @@ line:     '\n'
         | exp '\n'  { printf ("\t %f\n", $1); }
 ;
 
-exp:    NUM               { $$ = $1             }
-        |'(' '-' NUM ')'  { $$ = - $3           }
+exp:    NUM               { $$ = $1;            }
+        |'(' '-' NUM ')'  { $$ = - $3;          }
         | exp '+' exp     { $$ = $1 + $3;       }
         | exp '-' exp     { $$ = $1 - $3;       }
-        | exp '*'  exp     { $$ = $1 * $3;       }
+        | exp '*'  exp     { $$ = $1 * $3;      }
         | exp '/' exp     { $$ = $1 / $3;       }
         | exp '^' exp     { $$ = pow($1,$3);    }
 ;
@@ -43,7 +41,7 @@ exp:    NUM               { $$ = $1             }
 yyerror (s)  /* Llamada por yyparse ante un error */
      char *s;
 {
-  printf ("expresion invalida %s\n", s);
+  printf ("\nExpresion invalida %s\n", s);
 }
 
 main ()

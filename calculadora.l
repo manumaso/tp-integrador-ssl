@@ -19,4 +19,6 @@
 "("     {return '(';}
 ")"     {return ')';}
 "\n"    {return '\n';}
+[ ] {}
+. {printf("\nError de sintaxis \n\n"); exit(0);}
 %%
